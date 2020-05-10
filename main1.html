@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script>
+        function login() {
+            var ID = document.info.id.value;
+            var PW = document.info.pass.value;
+
+            if (ID.length >= 4 && ID.length <= 12) {
+                if (PW.length >= 4 && PW.length <= 12) {
+                    document.info.submit();
+                } else {
+                    alert("PASSWORD NOT CORRECT!\n PASSWORD length 4~12! ");
+                    document.info.PW.focus();
+                }
+            } else {
+                alert("ID length 4~12!");
+                document.info.ID.focus();
+            }
+        }
+        function norun() {
+            alert("login needed!!");
+            document.info.id.focus;
+        }
+        function add() {
+            location.href = "Registration.html";
+        }
+    </script>
+</head>
+
+<body>
+    NC.13
+    <form id="info" name="info" action="login.jsp" method="post">
+        아이디 : <input type="text" name="id"> <BR>
+        비밀번호 : <input type="password" name="pass">
+        <input type="button" value="로그인" onclick="login()">
+        <input type="button" value="게임 실행" onclick="norun()">
+    </form>
+    <button id="add" onclick="add()">회원가입</button>
+</body>
+
+</html>

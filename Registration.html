@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+    <script>
+        function register() {
+            var str = document.Reg.ID.value;
+            var NICK = document.Reg.NICK.value;
+            var PWA = document.Reg.PW.value;
+            var PWB = document.Reg.PWCK.value;
+            if (str.length >= 4 && str.length <= 12) {
+                if (PWA == PWB && PWA.length >= 4 && PWA.length <= 12) {
+                    if (NICK.length >= 4 && NICK.length <= 10) {
+                        document.Reg.submit();
+                    } else {
+                        alert("NICKNAME length 4~10!");
+                        document.Reg.NICK.focus();
+                    }
+                } else {
+                    alert("PASSWORD NOT CORRECT!\n PASSWORD length 4~12! ");
+                    document.Reg.PW.focus();
+                }
+            } else {
+                alert("ID length 4~12!");
+                document.Reg.ID.focus();
+            }
+        }
+        function back() {
+            history.go(-1);
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <form name="Reg" action="regform.jsp" method="post">
+        <input type="hidden" name="ID_check" value=0> <input type="hidden" name="PW_check" value=0> ID : <input
+            type="text" name="ID" value="Enter ID"> <BR>PASSWORD : <input type="password" name="PW" value="">
+        <BR>PASSWORD CHECK :
+        <input type="password" name="PWCK" value=""> <BR>NICKNAME
+        : <input type="text" name="NICK" value="music"> <input type="button" name="confirm" value="confirm"
+            onclick="register()">
+        <input type="button" name="cancel" value="cancel" onclick="back()">
+    </form>
+</body>
+
+</html>
